@@ -171,61 +171,241 @@ body {
     }
 }
 
-/* Edge Logo - Microsoft style */
-.edge-logo {
+/* ==================== */
+/* PROFILE HEADER       */
+/* ==================== */
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.avatar-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.avatar-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    z-index: -1;
+    animation: ringPulse 3s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #059669;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: statusBlink 2s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ==================== */
+/* PROFILE TEXT         */
+/* ==================== */
+
+.profile-name {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.03em;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.profile-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.profile-bio {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.5;
+    max-width: 320px;
+    margin-bottom: 24px;
+}
+
+/* ==================== */
+/* SKILLS SECTION       */
+/* ==================== */
+
+.skills-section {
+    margin-bottom: 24px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+    transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.skill-icon {
+    width: 16px;
+    height: 16px;
+    color: #64748b;
+}
+
+/* ==================== */
+/* SOCIAL LINKS         */
+/* ==================== */
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.social-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-.edge-icon {
-    width: 28px;
-    height: 28px;
-}
-
-.edge-text {
-    font-size: 16px;
-    font-weight: 600;
-    color: #1a1a1a;
-    letter-spacing: -0.01em;
-}
-
-/* Heading - Microsoft typography */
-.intro-heading {
-    font-size: 28px;
-    font-weight: 600;
-    color: #1a1a1a;
-    line-height: 1.35;
-    margin-bottom: 28px;
-    letter-spacing: -0.02em;
-}
-
-/* Next Button - Microsoft Edge off-white style */
-.next-button {
-    background: #f0f0f0;
-    border: none;
+    width: 44px;
+    height: 44px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
-    padding: 18px 56px;
+    color: #64748b;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.social-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==================== */
+/* CONTACT BUTTON       */
+/* ==================== */
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 14px;
+    padding: 18px 48px;
     font-size: 16px;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #ffffff;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+    text-decoration: none;
     letter-spacing: -0.01em;
 }
 
-.next-button:hover {
-    background: #e6e6e6;
-    transform: scale(1.02);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+.contact-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.5);
 }
 
-.next-button:active {
-    transform: scale(0.98);
-    background: #ddd;
+.contact-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.btn-arrow {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.2s ease;
+}
+
+.contact-button:hover .btn-arrow {
+    transform: translateX(4px);
 }
 
 /* ==================== */
@@ -280,8 +460,22 @@ body {
         margin: 16px;
     }
 
-    .intro-heading {
-        font-size: 22px;
+    .profile-name {
+        font-size: 26px;
+    }
+
+    .profile-title {
+        font-size: 14px;
+    }
+
+    .avatar-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .skill-tag {
+        padding: 6px 12px;
+        font-size: 12px;
     }
 
     .float-img {
@@ -295,15 +489,18 @@ body {
 }
 
 @media (max-width: 480px) {
-    .intro-heading {
-        font-size: 18px;
-        margin-bottom: 24px;
+    .profile-name {
+        font-size: 22px;
     }
 
-    .next-button {
-        padding: 16px 40px;
+    .profile-bio {
+        font-size: 13px;
+    }
+
+    .contact-button {
+        padding: 16px 36px;
         font-size: 15px;
-        border-radius: 10px;
+        border-radius: 12px;
     }
 
     .float-img {
@@ -312,5 +509,19 @@ body {
 
     .intro-card {
         padding: 32px 24px;
+    }
+
+    .social-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .skills-grid {
+        gap: 6px;
     }
 }
