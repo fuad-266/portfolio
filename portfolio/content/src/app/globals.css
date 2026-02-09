@@ -4,6 +4,182 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ==================== */
+/* EDGE BACKGROUND      */
+/* ==================== */
+
+.edge-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  background: #ffffff;
+  pointer-events: none;
+}
+
+.dark .edge-background {
+  background: oklch(0.18 0 0);
+}
+
+.edge-bg-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 120%;
+  min-height: 120%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.08;
+}
+
+.dark .edge-bg-main {
+  opacity: 0.05;
+}
+
+.edge-floating-images {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.edge-float-img {
+  position: absolute;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.11),
+    0 4px 12px rgba(0, 0, 0, 0.07);
+  object-fit: cover;
+}
+
+.float-img-1 {
+  width: 253px;
+  top: 70%;
+  left: 5%;
+}
+
+.float-img-2 {
+  width: 310px;
+  top: 38%;
+  left: -8%;
+}
+
+.float-img-3 {
+  width: 296px;
+  top: -12%;
+  left: 10%;
+}
+
+.float-img-4 {
+  width: 281px;
+  top: -5%;
+  right: 55%;
+}
+
+.float-img-5 {
+  width: 296px;
+  top: 50%;
+  left: 15%;
+}
+
+.float-img-6 {
+  width: 253px;
+  top: 2%;
+  left: 2%;
+}
+
+.float-img-7 {
+  width: 239px;
+  bottom: 2%;
+  left: 25%;
+}
+
+.float-img-8 {
+  width: 281px;
+  top: 28%;
+  left: -5%;
+}
+
+.float-img-9 {
+  width: 296px;
+  bottom: 8%;
+  left: 0%;
+}
+
+.float-img-10 {
+  width: 281px;
+  top: 2%;
+  left: 30%;
+}
+
+/* ==================== */
+/* PORTFOLIO PANEL      */
+/* ==================== */
+
+.portfolio-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 720px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: -10px 0 60px rgba(0, 0, 0, 0.1);
+  animation: panelSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .portfolio-panel {
+  background: rgba(24, 24, 27, 0.92);
+  box-shadow: -10px 0 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes panelSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.portfolio-panel-content {
+  padding: 48px 40px 120px 40px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .portfolio-panel {
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  .edge-floating-images {
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-panel-content {
+    padding: 32px 20px 120px 20px;
+  }
+
+  .edge-float-img {
+    width: 120px !important;
+  }
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -133,40 +309,41 @@
     background-color: transparent;
   }
 
-.prose pre {
-    @apply leading-relaxed bg-transparent! font-mono!;
+  .prose pre {
+    @apply leading-relaxed bg-transparent ! font-mono !;
   }
 
   .prose code {
-    @apply m-0! mx-1! border rounded-md! px-1.5 py-0.5 bg-muted/60 dark:bg-muted/40 text-[13px]! font-mono text-foreground/90!;
+    @apply m-0 ! mx-1 ! border rounded-md ! px-1.5 py-0.5 bg-muted/60 dark:bg-muted/40 text-[13px] ! font-mono text-foreground/90 !;
   }
 
-  .prose code::before, .prose code::after {
-    @apply content-none!;
+  .prose code::before,
+  .prose code::after {
+    @apply content-none !;
   }
 
   .prose h1 {
-    @apply text-2xl! font-semibold! tracking-tight! leading-tight!;
+    @apply text-2xl ! font-semibold ! tracking-tight ! leading-tight !;
   }
 
   .prose h2 {
-    @apply text-xl! font-semibold! tracking-tight! leading-tight!;
+    @apply text-xl ! font-semibold ! tracking-tight ! leading-tight !;
   }
 
   .prose h3 {
-    @apply text-lg! font-semibold! tracking-tight! leading-tight!;
+    @apply text-lg ! font-semibold ! tracking-tight ! leading-tight !;
   }
 
   .prose h4 {
-    @apply text-base! font-medium! tracking-tight! leading-tight!;
+    @apply text-base ! font-medium ! tracking-tight ! leading-tight !;
   }
 
   .prose h5 {
-    @apply text-base! font-medium! tracking-tight! leading-tight!;
+    @apply text-base ! font-medium ! tracking-tight ! leading-tight !;
   }
 
   .prose h6 {
-    @apply text-base! font-medium! tracking-tight! leading-tight!;
+    @apply text-base ! font-medium ! tracking-tight ! leading-tight !;
   }
 
   .prose a {
@@ -174,31 +351,28 @@
   }
 
   .prose blockquote {
-    @apply border-l-4 border-amber-500! pl-4 italic bg-muted/50 p-4 rounded-md rounded-l-none;
+    @apply border-l-4 border-amber-500 ! pl-4 italic bg-muted/50 p-4 rounded-md rounded-l-none;
   }
 
   .prose blockquote p {
-    @apply m-0!;
+    @apply m-0 !;
   }
 
   .prose blockquote p:first-child {
-    @apply mt-0!;
+    @apply mt-0 !;
   }
 
   /* Task lists (remark-gfm): remove bullet marker so it renders like a pure checklist */
   .prose :where(ul.contains-task-list):not(:where([class~="not-prose"] *)) {
-    @apply list-none! pl-0!;
+    @apply list-none ! pl-0 !;
   }
 
   .prose :where(li.task-list-item):not(:where([class~="not-prose"] *)) {
-    @apply pl-0!;
+    @apply pl-0 !;
   }
 
-  .prose
-    :where(li.task-list-item > input[type="checkbox"]):not(
-      :where([class~="not-prose"] *)
-    ) {
-    @apply mr-2 align-middle!;
+  .prose :where(li.task-list-item > input[type="checkbox"]):not( :where([class~="not-prose"] *)) {
+    @apply mr-2 align-middle !;
   }
 
   .prose :where(table):not(:where([class~="not-prose"]) *) {
@@ -212,16 +386,16 @@
     @apply px-6 py-4 align-middle m-0 whitespace-nowrap;
   }
 
-  .prose tr{
-    @apply hover:bg-accent/50! transition-colors! cursor-pointer! h-10!;
+  .prose tr {
+    @apply hover:bg-accent/50 ! transition-colors ! cursor-pointer ! h-10 !;
   }
 
   .prose :where(th):not(:where([class~="not-prose"] *)) {
-    @apply text-left font-semibold text-foreground border-b border-border m-0! bg-muted/50 p-3! py-2!;
+    @apply text-left font-semibold text-foreground border-b border-border m-0 ! bg-muted/50 p-3 ! py-2 !;
   }
 
   .prose :where(td):not(:where([class~="not-prose"] *)) {
-    @apply text-muted-foreground border-b border-border text-sm! p-2!;
+    @apply text-muted-foreground border-b border-border text-sm ! p-2 !;
   }
 
   .prose :where(th:not(:last-child)):not(:where([class~="not-prose"] *)),
