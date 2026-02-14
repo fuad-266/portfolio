@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { EdgeBackground } from "@/components/edge-background";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -72,9 +71,6 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-            {/* Edge-style Background */}
-            <EdgeBackground />
-
             {/* Scrollable Content Panel */}
             <div className="portfolio-panel">
               <div className="portfolio-panel-content">
